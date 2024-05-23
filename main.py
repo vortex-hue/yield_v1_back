@@ -25,22 +25,32 @@ sentry_sdk.init(
 )
 
 database.Base.metadata.create_all(bind=engine)
-origins = [
-    "http://localhost:3000",
-    "https://yieldvest.hng.tech",
-    "https://mystockplug-demo.vercel.app",
-    "https://www.yieldvest.app",
-    "https://yieldvest.app"
-]
+
+## production origins
+# origins = [
+#     "http://localhost:3000",
+#     "*",
+#     "https://www.yieldvest.app",
+#     "https://yieldvest.app"
+# ]
 
 app = FastAPI()
 
+## production middleware
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=origins,
+#     allow_credentials=True,
+#     allow_methods=["*"],
+#     allow_headers=["*"],
+# )
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,
+    allow_origins=["*"],  # Allows all origins
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allows all methods
+    allow_headers=["*"],  # Allows all headers
 )
 
 SECRET_KEY = os.getenv('SECRET_KEY')
