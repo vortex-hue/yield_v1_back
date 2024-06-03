@@ -206,7 +206,7 @@ async def signup(user: CreateUserModel):
         except Exception as e:
             raise HTTPException(
                 status_code=status.HTTP_401_UNAUTHORIZED,
-                detail="Invalid token received",
+                detail=f"the error occurred is {e}",
             )
 
     return {"message": "Account created successfully"}

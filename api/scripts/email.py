@@ -17,8 +17,8 @@ conf = ConnectionConfig(
     MAIL_PORT=os.getenv('MAIL_PORT'),
     MAIL_SERVER=os.getenv('MAIL_SERVER'),
     MAIL_FROM_NAME=os.getenv('MAIL_FROM_NAME'),
-    MAIL_STARTTLS=False,
-    MAIL_SSL_TLS=True,
+    MAIL_STARTTLS=True,
+    MAIL_SSL_TLS=False,
 
     # TO add a template folder
     # TEMPLATE_FOLDER = Path(__file__).parent / 'templates',

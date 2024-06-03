@@ -16,21 +16,19 @@ from api.scripts.ranking import run_process_scripts
 load_dotenv()
 
 sentry_sdk.init(
-    dsn="https://6ea75f2205cc4469a564cf2bce39ccfb@o4504281377996800.ingest.sentry.io/4504283426390016",
+    dsn="https://6e889d2d8d56afee40d7d4b527ed36ad@o4507307830607872.ingest.de.sentry.io/4507307832901712",
 
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
-    # We recommend adjusting this value in production,
-    traces_sample_rate=0.3,
+    traces_sample_rate=1,
 )
 
 database.Base.metadata.create_all(bind=engine)
 
 ## production origins
 # origins = [
-#     "http://localhost:3000",
-#     "*",
-#     "https://www.yieldvest.app",
+#     "http://192.168.1.129:3000",
+#     "https://yield-front.vercel.app",
 #     "https://yieldvest.app"
 # ]
 
